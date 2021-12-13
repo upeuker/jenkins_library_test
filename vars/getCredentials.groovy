@@ -2,9 +2,9 @@ import groovy.yaml.YamlSlurper
 
 def call(Map config = [:]) {
 	def content = libraryResource 'config/jenkinsCredentialMappings.yaml'
-	def config = new YamlSlurper().parseText(configYaml)
+	def yamlData = new YamlSlurper().parseText(configYaml)
 
-	sh "echo ${config}"	
+	sh "echo ${yamlData}"	
 }
 
 def cfffall(Map config = [:]) {
