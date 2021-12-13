@@ -12,7 +12,7 @@ def call(Map config = [:]) {
 	}
 	
 	def String request = "${JENKINS_URL}"
-	def String key = config.get("key");
+	def String key = config.get("key", "");
 	if(!key.isEmpty()) {
 		request = request + "_" + key;
 	}
