@@ -20,5 +20,5 @@ def cfffall(Map config = [:]) {
 		}
 	}
 
-	return props.getProperty("$(JENKINS_URL)", config.get("default", "undefined"));
+	return props.getProperty("${JENKINS_URL}", config.get("default", "undefined"));
 }
