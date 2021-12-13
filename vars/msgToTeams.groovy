@@ -4,6 +4,6 @@ def call(Map config = [:]) {
 	def message = libraryResource 'teams/successMessage.html'
 	// mail body: message, subject: "Build state in Jenkins: ${JOB_NAME}", to: 'e3a11d4d.aptiv.com@amer.teams.ms, dev@upeuker.net'
 	
-	emailext attachLog: true, body: message, compressLog: true, mimeType: 'text/html', subject: 'Build state in Jenkins: ${JOB_NAME}', to: 'dev@upeuker.net'
+	emailext attachLog: true, body: message, compressLog: true, mimeType: 'text/html', subject: 'Build state in Jenkins: ${JOB_NAME}', to: 'e3a11d4d.aptiv.com@amer.teams.ms, dev@upeuker.net'
 	
 }
