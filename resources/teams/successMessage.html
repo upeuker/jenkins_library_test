@@ -5,18 +5,14 @@
 <body>
  
 <h1>Build ${build.result}</h1>
-<table>
-  <tr><th>Build URL:</th><td><a href="${rooturl}${build.url}">${rooturl}${build.url}</a></td></tr>
-  <tr><th>Project:</th><td>${project.name}</td></tr>
-  <tr><th>Date of build:</th><td>${it.timestampString}</td></tr>
-  <tr><th>Build duration:</th><td>${build.durationString}</td></tr>
-</table>
  
 <div style="border-style: solid;border-width: thick;border-color: green;">
 <p>
-	Build state in Jenkins: ${JOB_NAME}</p>
+<table>
+  <tr><th>Build URL:</th><td><a href="${BUILD_URL}">${BUILD_URL}</a></td></tr>
+  <tr><th>Project:</th><td>${JOB_NAME}</td></tr>
+  <tr><th>Date of build:</th><td>${TAG_DATE}</td></tr>
+</table>
 </div> 
- 
-
  
 </body>
