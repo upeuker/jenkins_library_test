@@ -2,6 +2,8 @@ import static java.util.Calendar.YEAR
 
 def call(Map config = [:]) {
 	
+	def resultClasses = ["SUCCESS":"success", "UNSTABLE": "unstable", "FAILURE" : "failure"]
+	
 	sh "echo Ausgabe1: ${currentBuild}"
 	sh "echo Ausgabe2: ${currentBuild.displayName}"
 	sh "echo Ausgabe3: ${currentBuild.result}"
@@ -17,8 +19,10 @@ def call(Map config = [:]) {
 		"state":"${currentBuild.result}",
 		"buildId":"${BUILD_ID}",
 		"jobName":"${JOB_NAME}",
-		"buildUrl":"${BUILD_URL}"
+		"buildUrl":"${BUILD_URL}",
+		"boxClass":resultClasses.get("${currentBuild.result}", "unknown")
 	]
+
 	def template = libraryResource 'teams/message_template.html'
 	def engine = new groovy.text.SimpleTemplateEngine()
 	def message = engine.createTemplate(template).make(binding).toString()

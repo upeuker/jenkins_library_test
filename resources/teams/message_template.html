@@ -19,7 +19,7 @@
 	background-color: palegreen;
 }
 
-.error {
+.failure {
 	border-color: red;
 	background-color: lightpink;
 }
@@ -28,6 +28,12 @@
 	border-color: yellow;
 	background-color: gold;
 }
+
+.unknown {
+	border-color: blue;
+	background-color: lightblue;
+}
+
 
 
 a.button {
@@ -45,9 +51,9 @@ a.button {
 </head>
 <body>
 
-<h1>{jobName}</h1>
+<h1>${jobName}</h1>
  
-<div class="box unstable">
+<div class="box ${boxClass}">
 
 <table>
   <tr><th>Build-Nr:</th><td>${buildId}</td></tr>
