@@ -1,17 +1,25 @@
 def String getReceivers(String jobName) {
 	
-	def content = libraryResource 'config/jobToTeamsMap.properties'
-	Properties props = new java.util.Properties()
+//	def content = libraryResource 'config/jobToTeamsMap.properties'
+//	Properties props = new java.util.Properties()
+//	
+//	new java.io.StringReader(content).with { res ->
+//		try {
+//			props.load(res)
+//		} finally {
+//			res.close()
+//		}
+//	}
+//	
+//	return props.getProperty(jobName, "info@peuker-online.de")
 	
-	new java.io.StringReader(content).with { res ->
-		try {
-			props.load(res)
-		} finally {
-			res.close()
-		}
+	def content = libraryResource 'config/jobToTeamsMap.properties'
+	def String[]lines = content.split('\n') 
+	for (i in arr) {
+		println "now got ${i}"
 	}
 	
-	return props.getProperty(jobName, "info@peuker-online.de")
+	return "info@peuker-online.de"
 }
 
 
