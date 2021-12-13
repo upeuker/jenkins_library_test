@@ -11,7 +11,7 @@ def call(Map config = [:]) {
 		}
 	}
 	
-	def java.net.URL url = "${JENKINS_URL}"
+	def  url = new java.net.URL((String)"${JENKINS_URL}")
 	
 	def String request = url.getHost()
 	def String key = config.get("key", "");
