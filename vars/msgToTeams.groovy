@@ -15,8 +15,8 @@ def call(Map config = [:]) {
 	def binding = [
 		"date":today.format("dd.MM.yyyy HH:mm"), 
 		"state":"${currentBuild.result}",
-		"buildId":"${BUILD_ID}"
-		"jobName":"${JOB_NAME}"
+		"buildId":"${BUILD_ID}",
+		"jobName":"${JOB_NAME}",
 		"buildUrl":"${BUILD_URL}"
 	]
 	def template = libraryResource 'teams/message_template.html'
