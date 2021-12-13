@@ -19,12 +19,13 @@ def call(Map config = [:]) {
 	sh "echo ${buildDate}"
 	
 	def String buildState = "${currentBuild.currentResult}"
+	def String buildUrl = "${BUILD_URL}"
 	def binding = [
 		"date":today.format("dd.MM.yyyy HH:mm"),
 		"state":buildState.toString(),
 		"buildId":"${BUILD_ID}",
 		"jobName":"${JOB_NAME}",
-//		"buildUrl":"${BUILD_URL}".toString()
+		"buildUrl":buildUrl,
 		"boxClass":resultClasses.get(buildState.toString(), "unknown")
 	]
 
