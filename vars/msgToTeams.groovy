@@ -13,13 +13,13 @@ def call(Map config = [:]) {
 	sh "echo ${buildDate}"
 	
 	def binding = ["buildDate":today.format("dd.MM.yyyy HH:mm"), "buildState":"${currentBuild.result}"]
-	def message = libraryResource 'teams/message_template.html'
+	def template = libraryResource 'teams/message_template.html'
 	def engine = new groovy.text.SimpleTemplateEngine()
-	def template = engine.createTemplate(text).make(binding)
+	def message = engine.createTemplate(template).make(binding).toString()
 	
 	emailext (
 		attachLog : true,
-		body : template.toString(),
+		body : message,
 		compressLog : true,
 		mimeType : 'text/html',
 		subject: 'Build state in Jenkins: ${JOB_NAME}',
