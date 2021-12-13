@@ -12,7 +12,13 @@ def call(Map config = [:]) {
 	
 	sh "echo ${buildDate}"
 	
-	def binding = ["buildDate":today.format("dd.MM.yyyy HH:mm"), "buildState":"${currentBuild.result}"]
+	def binding = [
+		"date":today.format("dd.MM.yyyy HH:mm"), 
+		"state":"${currentBuild.result}",
+		"buildId":"${BUILD_ID}"
+		"jobName":"${JOB_NAME}"
+		"buildUrl":"${BUILD_URL}"
+	]
 	def template = libraryResource 'teams/message_template.html'
 	def engine = new groovy.text.SimpleTemplateEngine()
 	def message = engine.createTemplate(template).make(binding).toString()
