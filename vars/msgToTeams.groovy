@@ -15,8 +15,16 @@ def String getReceivers(String jobName) {
 	
 	def content = libraryResource 'config/jobToTeamsMap.properties'
 	def String[]lines = content.split('\n') 
-	for (i in lines) {
-		println "now got ${i}"
+	for (line in lines) {
+		def String[] param = line.split('=')
+		if(param.length == 2) {
+			def key = param[0].trim()
+			def value = param[1].trim();
+			
+			if(key.equals(jobName)) {
+				return value;
+			}
+		}
 	}
 	
 	return "info@peuker-online.de"
