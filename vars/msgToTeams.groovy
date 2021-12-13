@@ -4,8 +4,8 @@ def call(Map config = [:]) {
 	
 	def resultClasses = ["SUCCESS":"success", "UNSTABLE": "unstable", "FAILURE" : "failure"]
 	
-	def attach = config.get("attachLog", false)
-	def compress = config.get("compressLog", false)
+	def attach = config.get("attachLog", "false")
+	def compress = config.get("compressLog", "false")
 	def subject = config.get("subject", "Build state in Jenkins: ${JOB_NAME}")
 	
 	sh "echo Ausgabe1: ${currentBuild}"
