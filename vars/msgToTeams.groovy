@@ -14,13 +14,14 @@ def call(Map config = [:]) {
 	
 	sh "echo ${buildDate}"
 	
+	def String buildState = "${currentBuild.currentResult}"
 	def binding = [
 		"date":today.format("dd.MM.yyyy HH:mm"), 
-		"state":"${currentBuild.result}",
+		"state":buildState,
 		"buildId":"${BUILD_ID}",
 		"jobName":"${JOB_NAME}",
 		"buildUrl":"${BUILD_URL}",
-		"boxClass":resultClasses.get("${currentBuild.result}", "unknown")
+		"boxClass":resultClasses.get(buildState, "unknown")
 	]
 
 	def template = libraryResource 'teams/message_template.html'
