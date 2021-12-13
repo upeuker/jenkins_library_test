@@ -17,5 +17,7 @@ def call(Map config = [:]) {
 		request = request + "_" + key;
 	}
 	
+	echo "Search for ${request}"
+	
 	return props.getProperty(request, config.get("default"));
 }
