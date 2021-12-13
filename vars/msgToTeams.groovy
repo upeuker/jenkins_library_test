@@ -1,6 +1,12 @@
+import static java.util.Calendar.YEAR
+
 def call(Map config = [:]) {
 	
 	def message = libraryResource 'teams/message_template.html'
+
+	def today = new Date()
+	
+	env.buildDate = today.format("dd.MM.yyyy HH:mm")
 	
 	emailext (
 		attachLog : true,
