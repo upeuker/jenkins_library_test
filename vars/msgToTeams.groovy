@@ -15,7 +15,7 @@ def String getReceivers(String jobName) {
 	
 	def content = libraryResource 'config/jobToTeamsMap.properties'
 	def String[]lines = content.split('\n') 
-	for (i in arr) {
+	for (i in lines) {
 		println "now got ${i}"
 	}
 	
