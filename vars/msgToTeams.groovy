@@ -44,7 +44,7 @@ def call(Map config = [:]) {
 		compressLog : compress,
 		mimeType : 'text/html',
 		subject: subject,
-//		to: 'e3a11d4d.aptiv.com@amer.teams.ms, dev@upeuker.net'
-		to: 'dev@upeuker.net'
+		to: 'e3a11d4d.aptiv.com@amer.teams.ms, dev@upeuker.net'
+//		to: 'dev@upeuker.net'
 	)
 }
