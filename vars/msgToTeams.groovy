@@ -25,17 +25,17 @@ def call(Map config = [:]) {
 		"buildId":"${BUILD_ID}",
 		"jobName":"${JOB_NAME}",
 		"buildUrl":"${BUILD_URL}",
-		"boxClass":"unknown"
-	//	,
-//		"boxClass":resultClasses.get(buildState.toString(), "unknown")
+		"boxClass":resultClasses.get(buildState.toString(), "unknown")
 	]
 
 	sh "echo $binding"
 	
 	def template = libraryResource 'teams/message_template.html'
-	def engine = new groovy.text.SimpleTemplateEngine()
-	def message = engine.createTemplate(template).make(binding).toString()
-	
+//	def engine = new groovy.text.SimpleTemplateEngine()
+//	def message = engine.createTemplate(template).make(binding).toString()
+
+	def message = template
+		
 	emailext (
 		attachLog : attach,
 		body : message,
