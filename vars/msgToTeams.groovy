@@ -2,6 +2,8 @@ import com.cloudbees.groovy.cps.NonCPS
 // import static java.util.Calendar.YEAR
 
 
+def resultClasses = ["SUCCESS":"success", "UNSTABLE": "unstable", "FAILURE" : "failure"]
+
 def String fillTemplate() {
 	
 	def today = new Date()
@@ -24,8 +26,6 @@ def String fillTemplate() {
 }
 
 def call(Map config = [:]) {
-	
-	def resultClasses = ["SUCCESS":"success", "UNSTABLE": "unstable", "FAILURE" : "failure"]
 	
 	def attach = config.get("attachLog", "false")
 	def compress = config.get("compressLog", "false")
