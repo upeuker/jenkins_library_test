@@ -1,12 +1,13 @@
-// import com.cloudbees.groovy.cps.NonCPS
-// import static java.util.Calendar.YEAR
-
-
 def String getReceivers(String jobName) {
 	def propFileContent = libraryResource 'config/jobToTeamsMap.properties'
-	def props = readProperties text: propFileContent
+	def props = new PropreadProperties text: propFileContent
 	
-	return props.get(jobName, "info@peuker-online.de")
+	Properties props = new java.util.Properties()
+	try(Reader reader = new java.io.StringReader(propFileContent)) {
+		props.load(reader)
+	}
+	
+	return props.getProperty(jobName, "info@peuker-online.de")
 }
 
 
