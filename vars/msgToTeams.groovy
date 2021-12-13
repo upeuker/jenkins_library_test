@@ -38,7 +38,7 @@ def String fillTemplate() {
 	
 	def String message = libraryResource 'teams/message_template.tpl'
 	binding.each{k, v -> r:{
-			def pattern = '\${' + k + '}'
+			def pattern = '\\${' + k + '}'
 			message = message.replaceAll(pattern, v)
 		}
 	}
