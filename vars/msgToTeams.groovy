@@ -24,7 +24,7 @@ def call(Map config = [:]) {
 		"state":buildState.toString(),
 		"buildId":"${BUILD_ID}",
 		"jobName":"${JOB_NAME}",
-		"buildUrl":"${BUILD_URL}"
+		"buildUrl":"${BUILD_URL}".toString()
 //		"boxClass":resultClasses.get(buildState.toString(), "unknown")
 	]
 
