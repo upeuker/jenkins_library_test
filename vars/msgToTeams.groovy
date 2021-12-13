@@ -1,7 +1,7 @@
 import com.cloudbees.groovy.cps.NonCPS
 // import static java.util.Calendar.YEAR
 
-@NonCps
+
 def String fillTemplate() {
 	
 	def today = new Date()
