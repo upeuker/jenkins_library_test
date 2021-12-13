@@ -11,8 +11,8 @@ def String fillTemplate() {
 		"date":today.format("dd.MM.yyyy HH:mm"),
 		"state":buildState.toString(),
 		"buildId":"${BUILD_ID}",
-		"jobName":"${BUILD_URL}",
-		"buildUrl":buildUrl.toString(),
+		"jobName":"${JOB_NAME}",
+		"buildUrl":"${BUILD_URL}",
 		"boxClass":resultClasses.get(buildState.toString(), "unknown")
 	]
 	
