@@ -5,8 +5,9 @@ def call(Map config = [:]) {
 	def message = libraryResource 'teams/message_template.html'
 
 	def today = new Date()
-	
 	env.buildDate = today.format("dd.MM.yyyy HH:mm")
+	
+	sh "echo ${buildDate}"
 	
 	emailext (
 		attachLog : true,
