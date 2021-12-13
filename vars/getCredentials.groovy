@@ -1,6 +1,6 @@
 def call(Map config = [:]) {
 	
-	def content = libraryResource 'config/jenkinsCredentialMappings.properties'
+	def content = libraryResource 'config/jenkinsEnvMap.properties'
 	Properties props = new java.util.Properties()
 	
 	new java.io.StringReader(content).with { res ->
@@ -23,5 +23,7 @@ def call(Map config = [:]) {
 	assert map2.foo == "bar"
 	assert map2.baz.alpha == "beta"
 	
-	return props.getProperty("${JENKINS_URL}", config.get("default", "undefined"));
+	def envDefs = props.getProperty("${JENKINS_URL}", config.get("default", "undefined"));
+	def envMap = evaluate(envDefs)
+	envMap.each{ k, v -> println "${k}:${v}" }
 }
