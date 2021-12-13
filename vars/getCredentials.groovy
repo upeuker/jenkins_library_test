@@ -23,8 +23,8 @@ def call(Map config = [:]) {
 	assert map2.foo == "bar"
 	assert map2.baz.alpha == "beta"
 	
-
-	def envDefs = props.getProperty("${JENKINS_URL}", config.get("default", "undefined"), "['a':2,'b':4]");
+	def String key = "${JENKINS_URL}"
+	def envDefs = props.getProperty(key, config.get("default", "undefined"), "['a':2,'b':4]");
 	def envMap = evaluate(envDefs)
 	envMap.each{ k, v -> println "${k}:${v}" }
 }
