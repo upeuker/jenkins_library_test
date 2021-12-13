@@ -25,7 +25,7 @@ def call(Map config = [:]) {
 		"buildId":"${BUILD_ID}",
 		"jobName":"${JOB_NAME}",
 		"buildUrl":"${BUILD_URL}",
-		"boxClass":resultClasses.get(buildState, "unknown")
+		"boxClass":resultClasses.get(buildState.toString(), "unknown")
 	]
 
 	def template = libraryResource 'teams/message_template.html'
