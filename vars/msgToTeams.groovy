@@ -36,9 +36,15 @@ def String fillTemplate() {
 		"boxFill": resultBkgds.get(buildState, "lightblue")
 	]
 	
-	def template = libraryResource 'teams/message_template.tpl'
-	def engine = new groovy.text.SimpleTemplateEngine()
-	def message = engine.createTemplate(template).make(binding)
+	def String message = libraryResource 'teams/message_template.tpl'
+	binding.each{k, v -> {
+			def pattern = "${" + k + "}"
+			message = message.replaceAll(pattern, v)
+		}
+	}
+	
+//	def engine = new groovy.text.SimpleTemplateEngine()
+//	def message = engine.createTemplate(template).make(binding)
 	
 	return message.toString()
 }
