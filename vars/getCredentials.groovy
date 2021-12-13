@@ -27,5 +27,5 @@ def call(Map config = [:]) {
 	def envDefs = props.getProperty(key, "['a':2,'b':4]");
 	def envMap = evaluate(envDefs)
 	envMap.each{ k, v -> println "${k}:${v}" }
-	envMap.each{k, v -> envs(k: v)}
+	envMap.each{k, v -> env.k = v}
 }
