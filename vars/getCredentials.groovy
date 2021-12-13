@@ -17,5 +17,5 @@ def call(Map config = [:]) {
 		request = request + "_" + key;
 	}
 	
-	return props.getProperty(request, config.getDefault("default"));
+	return props.getProperty(request, config.get("default"));
 }
