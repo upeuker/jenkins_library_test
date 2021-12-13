@@ -2,10 +2,11 @@ import com.cloudbees.groovy.cps.NonCPS
 // import static java.util.Calendar.YEAR
 
 
-def resultClasses = ["SUCCESS":"success", "UNSTABLE": "unstable", "FAILURE" : "failure"]
+
 
 def String fillTemplate() {
 	
+	def resultClasses = ["SUCCESS":"success", "UNSTABLE": "unstable", "FAILURE" : "failure"]
 	def today = new Date()
 	env.buildDate = today.format("dd.MM.yyyy HH:mm")
 	def String buildState = "${currentBuild.currentResult}"
