@@ -5,7 +5,7 @@ def String getReceivers(String jobName) {
 	
 	new java.io.StringReader(content).with { res ->
 		try {
-			props.load(reader)
+			props.load(res)
 		} finally {
 			res.close()
 		}
