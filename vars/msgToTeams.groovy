@@ -23,6 +23,6 @@ def call(Map config = [:]) {
         log_error config.message
         break
       default:
-        error "Unhandled type."
+        error "Unhandled type. " + getResult()
     }
 }
