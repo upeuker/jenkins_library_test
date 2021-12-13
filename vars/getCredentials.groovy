@@ -47,5 +47,5 @@ def call(Map config = [:]) {
 		}
 	}
 
-	return "info@peuker-online.de"
+	return config.get("default")
 }
