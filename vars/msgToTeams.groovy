@@ -30,6 +30,8 @@ def call(Map config = [:]) {
 //		"boxClass":resultClasses.get(buildState.toString(), "unknown")
 	]
 
+	sh "echo $binding"
+	
 	def template = libraryResource 'teams/message_template.html'
 	def engine = new groovy.text.SimpleTemplateEngine()
 	def message = engine.createTemplate(template).make(binding).toString()
