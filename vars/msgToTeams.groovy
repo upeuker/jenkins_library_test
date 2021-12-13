@@ -38,10 +38,6 @@ def call(Map config = [:]) {
 	def compress = config.get("compressLog", "false")
 	def subject = config.get("subject", "Build state in Jenkins: ${JOB_NAME}")
 	
-	sh "echo Ausgabe1: ${currentBuild}"
-	sh "echo Ausgabe2: ${currentBuild.displayName}"
-	sh "echo Ausgabe3: ${currentBuild.result}"
-	
 	message = fillTemplate();
 
 	emailext (

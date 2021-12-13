@@ -1,53 +1,6 @@
 <!DOCTYPE html>
 <head>
   <title>Build report</title>
-  
-  <style>
-
-* {
-	font-family: Arial;
-}
-
-.box {
-	border-style: solid;
-	border-width: thick;
-	padding: 20px;
-}
-  
-.success {
-	border-color: green;
-	background-color: lightgreen;
-}
-
-.error {
-	border-color: red;
-	background-color: lightred;
-}
-
-.unstable {
-	border-color: yellow;
-	background-color: lightyellow;
-}
-
-.unknown {
-	border-color: blue;
-	background-color: lightblue;
-}
-
-
-
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
-    text-decoration: none;
-	color: black;
-	padding: 20px;
-}
-
-</style>
-  
 </head>
 <body style="font-family: Arial;">
 
