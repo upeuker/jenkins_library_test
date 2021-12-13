@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <head>
   <title>Build report</title>
+  
+  <style>
+.success_div {
+	border-style: solid;
+	border-width: thick;
+	border-color: green;
+	padding: 20px;
+}
+</style>
+  
 </head>
 <body>
  
 <h1>Build ${BUILD_ID}</h1>
  
-<div style="border-style: solid;border-width: thick;border-color: 0x00FF00;">
+<div class="success_div">
 <p>
 <table>
   <tr><th>Build URL:</th><td><a href="${BUILD_URL}">${BUILD_URL}</a></td></tr>
