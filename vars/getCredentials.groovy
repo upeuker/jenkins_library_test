@@ -1,13 +1,4 @@
-import groovy.yaml.YamlSlurper
-
 def call(Map config = [:]) {
-	def content = libraryResource 'config/jenkinsCredentialMappings.yaml'
-	def yamlData = new YamlSlurper().parseText(configYaml)
-
-	sh "echo ${yamlData}"	
-}
-
-def cfffall(Map config = [:]) {
 	
 	def content = libraryResource 'config/jenkinsCredentialMappings.properties'
 	Properties props = new java.util.Properties()
@@ -20,5 +11,17 @@ def cfffall(Map config = [:]) {
 		}
 	}
 
+	def stringMap = "['a':2,'b':4]"
+	def map = evaluate(stringMap)
+	
+	assert map.a == 2
+	assert map.b == 4
+	
+	def stringMapNested = "['foo':'bar', baz:['alpha':'beta']]"
+	def map2 = evaluate(stringMapNested)
+	
+	assert map2.foo == "bar"
+	assert map2.baz.alpha == "beta"
+	
 	return props.getProperty("${JENKINS_URL}", config.get("default", "undefined"));
 }
