@@ -53,7 +53,7 @@ a.button {
 
 <h1>${jobName}</h1>
  
-<div style="border-style: solid;border-width: thick;padding: 20px;border-color: '${boxColor}'";background-color: '${boxFill}';">
+<div style="border-style: solid;border-width: thick;padding: 20px;border-color: ${boxColor};background-color: ${boxFill};">
 
 <table>
   <tr><th>Build-Nr:</th><td>${buildId}</td></tr>

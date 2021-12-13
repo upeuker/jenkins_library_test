@@ -21,7 +21,7 @@ def String fillTemplate() {
 		"boxFill": "lightBlue"
 	]
 	
-	def template = libraryResource 'teams/message_template.html'
+	def template = libraryResource 'teams/message_template.tpl'
 	def engine = new groovy.text.SimpleTemplateEngine()
 	def message = engine.createTemplate(template).make(binding)
 	
