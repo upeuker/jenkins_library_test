@@ -16,7 +16,9 @@ def String fillTemplate() {
 		"buildId":"${BUILD_ID}",
 		"jobName":"${JOB_NAME}",
 		"buildUrl":"${BUILD_URL}",
-		"boxClass":resultClasses.get(buildState.toString(), "unknown")
+		"boxClass":resultClasses.get(buildState.toString(), "unknown"),
+		"boxColor": "blue",
+		"boxFill": "lightBlue"
 	]
 	
 	def template = libraryResource 'teams/message_template.html'
