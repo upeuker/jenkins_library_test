@@ -1,7 +1,13 @@
-import com.cloudbees.groovy.cps.NonCPS
+// import com.cloudbees.groovy.cps.NonCPS
 // import static java.util.Calendar.YEAR
 
 
+def String getReceivers(String jobName) {
+	def propFileContent = libraryResource 'config/jobToTeamsMap.properties'
+	def props = readProperties text: propFileContent
+	
+	return props.get(jobName, "info@peuker-online.de")
+}
 
 
 def String fillTemplate() {
@@ -46,7 +52,8 @@ def call(Map config = [:]) {
 		compressLog : compress,
 		mimeType : 'text/html',
 		subject: subject,
-		to: 'e3a11d4d.aptiv.com@amer.teams.ms, dev@upeuker.net'
+		to: getReceivers("${JOB_NAME}")
+//		to: 'e3a11d4d.aptiv.com@amer.teams.ms, dev@upeuker.net'
 //		to: 'dev@upeuker.net'
 	)
 }
