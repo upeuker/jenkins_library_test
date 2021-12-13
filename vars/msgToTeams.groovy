@@ -1,7 +1,7 @@
 import static java.util.Calendar.YEAR
 
 @NonCps
-String fillTemplate() {
+def String fillTemplate() {
 	
 	def today = new Date()
 	env.buildDate = today.format("dd.MM.yyyy HH:mm")
