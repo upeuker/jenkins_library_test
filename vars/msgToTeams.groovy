@@ -1,9 +1,8 @@
 def String getReceivers(String jobName) {
-	def propFileContent = libraryResource 'config/jobToTeamsMap.properties'
-	def props = new PropreadProperties text: propFileContent
 	
+	def content = libraryResource 'config/jobToTeamsMap.properties'
 	Properties props = new java.util.Properties()
-	try(Reader reader = new java.io.StringReader(propFileContent)) {
+	try(Reader reader = new java.io.StringReader(content)) {
 		props.load(reader)
 	}
 	
