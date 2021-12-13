@@ -21,7 +21,7 @@ def call(Map config = [:]) {
 	def String buildState = "${currentBuild.currentResult}"
 	def binding = [
 		"date":today.format("dd.MM.yyyy HH:mm"),
-//		"state":buildState,
+		"state":buildState.toString(),
 		"buildId":"${BUILD_ID}",
 		"jobName":"${JOB_NAME}"
 //		"buildUrl":"${BUILD_URL}",
