@@ -7,6 +7,10 @@ import com.cloudbees.groovy.cps.NonCPS
 def String fillTemplate() {
 	
 	def resultClasses = ["SUCCESS":"success", "UNSTABLE": "unstable", "FAILURE" : "failure"]
+	def resultColors = ["SUCCESS":"green", "UNSTABLE": "yellow", "FAILURE" : "red"]
+	def resultBkgds = ["SUCCESS":"lightgreen", "UNSTABLE": "lightyellow", "FAILURE" : "lightred"]
+	
+	
 	def today = new Date()
 	env.buildDate = today.format("dd.MM.yyyy HH:mm")
 	def String buildState = "${currentBuild.currentResult}"
@@ -16,9 +20,9 @@ def String fillTemplate() {
 		"buildId":"${BUILD_ID}",
 		"jobName":"${JOB_NAME}",
 		"buildUrl":"${BUILD_URL}",
-		"boxClass":resultClasses.get(buildState.toString(), "unknown"),
-		"boxColor": "blue",
-		"boxFill": "lightBlue"
+		"boxClass":resultClasses.get(buildState, "unknown"),
+		"boxColor": resultColors.get(buildState, "blue"),
+		"boxFill": resultBkgds.get(buildState, "lightblue")
 	]
 	
 	def template = libraryResource 'teams/message_template.tpl'
