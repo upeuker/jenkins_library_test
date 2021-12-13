@@ -1,4 +1,5 @@
-import static java.util.Calendar.YEAR
+import com.cloudbees.groovy.cps.NonCPS
+// import static java.util.Calendar.YEAR
 
 @NonCps
 def String fillTemplate() {
