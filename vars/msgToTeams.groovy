@@ -1,5 +1,27 @@
 import static java.util.Calendar.YEAR
 
+@NonCps
+String fillTemplate() {
+	
+	def today = new Date()
+	env.buildDate = today.format("dd.MM.yyyy HH:mm")
+	def String buildState = "${currentBuild.currentResult}"
+	def binding = [
+		"date":today.format("dd.MM.yyyy HH:mm"),
+		"state":buildState.toString(),
+		"buildId":"${BUILD_ID}",
+		"jobName":"${BUILD_URL}",
+		"buildUrl":buildUrl.toString(),
+		"boxClass":resultClasses.get(buildState.toString(), "unknown")
+	]
+	
+	def template = libraryResource 'teams/message_template.html'
+	def engine = new groovy.text.SimpleTemplateEngine()
+	def message = engine.createTemplate(template).make(binding)
+	
+	return message.toString()
+}
+
 def call(Map config = [:]) {
 	
 	def resultClasses = ["SUCCESS":"success", "UNSTABLE": "unstable", "FAILURE" : "failure"]
@@ -12,28 +34,7 @@ def call(Map config = [:]) {
 	sh "echo Ausgabe2: ${currentBuild.displayName}"
 	sh "echo Ausgabe3: ${currentBuild.result}"
 	
-	def today = new Date()
-	env.buildDate = today.format("dd.MM.yyyy HH:mm")
-	
-	
-	sh "echo ${buildDate}"
-	
-	def String buildState = "${currentBuild.currentResult}"
-	def buildUrl = "${BUILD_URL}"
-	def binding = [
-		"date":today.format("dd.MM.yyyy HH:mm"),
-		"state":buildState.toString(),
-		"buildId":"${BUILD_ID}",
-		"jobName":"${JOB_NAME}",
-		"buildUrl":buildUrl.toString(),
-		"boxClass":resultClasses.get(buildState.toString(), "unknown")
-	]
-
-	sh "echo $binding"
-	
-	def template = libraryResource 'teams/message_template.html'
-	def engine = new groovy.text.SimpleTemplateEngine()
-	def message = engine.createTemplate(template).make(binding).toString()
+	message = fillTemplate();
 
 	emailext (
 		attachLog : attach,
