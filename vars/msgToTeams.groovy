@@ -3,7 +3,8 @@ import static java.util.Calendar.YEAR
 def call(Map config = [:]) {
 	
 	sh "echo Ausgabe1: ${currentBuild}"
-	sh "echo Ausgabe2: ${this.currentBuild.displayName}"
+	sh "echo Ausgabe2: ${currentBuild.displayName}"
+	sh "echo Ausgabe3: ${currentBuild.result}"
 	
 	def today = new Date()
 	env.buildDate = today.format("dd.MM.yyyy HH:mm")
