@@ -23,8 +23,8 @@ def call(Map config = [:]) {
 		"date":today.format("dd.MM.yyyy HH:mm"),
 		"state":buildState.toString(),
 		"buildId":"${BUILD_ID}",
-		"jobName":"${JOB_NAME}"
-//		"buildUrl":"${BUILD_URL}",
+		"jobName":"${JOB_NAME}",
+		"buildUrl":"${BUILD_URL}"
 //		"boxClass":resultClasses.get(buildState.toString(), "unknown")
 	]
 
