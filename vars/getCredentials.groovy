@@ -5,7 +5,7 @@ import hudson.slaves.NodePropertyDescriptor;
 import hudson.util.DescribableList;
 import jenkins.model.Jenkins;
 
-public createGlobalEnvironmentVariables(String key, String value){
+def createGlobalEnvironmentVariables(String key, String value){
 
 	   Jenkins instance = Jenkins.getInstance();
 
