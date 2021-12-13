@@ -6,7 +6,7 @@ def call(Map config = [:]) {
 	
 	def today = new Date()
 	env.buildDate = today.format("dd.MM.yyyy HH:mm")
-	env.buildState = status
+	
 	
 	sh "echo ${buildDate}"
 	
