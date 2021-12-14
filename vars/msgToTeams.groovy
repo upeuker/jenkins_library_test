@@ -13,6 +13,7 @@ def String getReceivers(String jobName) {
 //	
 //	return props.getProperty(jobName, "info@peuker-online.de")
 	
+	def searchKey = jobName.replaceAll(' ', '_')
 	def content = libraryResource 'config/jobToTeamsMap.properties'
 	def String[]lines = content.split('\n') 
 	for (line in lines) {
@@ -21,13 +22,13 @@ def String getReceivers(String jobName) {
 			def key = param[0].trim()
 			def value = param[1].trim();
 			
-			if(key.equals(jobName)) {
+			if(key.equals(searchKey)) {
 				return value;
 			}
 		}
 	}
 	
-	return "info@peuker-online.de"
+	return "uwe.peuker@bitctrl.de"
 }
 
 
