@@ -9,7 +9,7 @@ def call(Map config = [:]) {
 	def String [] parts =  url.split('/')
 	
 	println parts
-	println parts[0]
+	println parts[0] + " --> " + parts[0].getClass()
 	println parts[1]
 //	def String request = parts[0]​.toString().trim()
 	
