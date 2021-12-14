@@ -4,7 +4,7 @@ def call(Map config = [:]) {
 //	def String request = url.getHost()
 	
 	def String url = "${JENKINS_URL}"
-	url = url.replaceAll('http?://', '')
+	url = url.replaceAll('http.://', '')
 	url = url.split('/')[0]
 	url = url.split(':')[0]
 	
