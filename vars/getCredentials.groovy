@@ -8,6 +8,7 @@ def call(Map config = [:]) {
 	url = url.replace('.*://', '')
 	def String [] parts =  url.split('/')
 	
+	println "URL (" + url.getClass() + ") " + url
 	println parts
 	println parts[0] + " --> " + parts[0].getClass()
 	println parts[1]
