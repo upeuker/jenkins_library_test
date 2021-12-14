@@ -5,7 +5,8 @@ def call(Map config = [:]) {
 //	def String request = url.getHost()
 	
 	def url = "${JENKINS_URL}"
-	def String request = url[(url.indexOf('://')+ 3)..-1]​.split('/')[0]​
+	def idx = url.indexOf('://')
+	def String request = url[( idx+ 3 ).. -1]​.split('/')[0]​
 	
 	def String key = config.get("key", "");
 	if(!key.isEmpty()) {
