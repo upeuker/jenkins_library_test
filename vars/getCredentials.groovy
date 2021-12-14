@@ -9,6 +9,7 @@ def call(Map config = [:]) {
 	def String [] parts =  url.split('/')
 	
 	println parts
+	println parts[0]
 	// def String request = parts[0]​
 	
 	def String request = url
