@@ -1,19 +1,12 @@
 def call(Map config = [:]) {
 
 //	def  url = new java.net.URL((String)"${JENKINS_URL}")
-//
 //	def String request = url.getHost()
 	
 	def String url = "${JENKINS_URL}"
 	url = url.replaceAll('http?://', '')
 	url = url.split('/')[0]
 	url = url.split(':')[0]
-	
-	println "URL (" + url.getClass() + ") " + url
-//	println parts
-//	println parts[0] + " --> " + parts[0].getClass()
-//	println parts[1]
-//	def String request = parts[0]​.toString().trim()
 	
 	def String request = url
 	def String key = config.get("key", "");
