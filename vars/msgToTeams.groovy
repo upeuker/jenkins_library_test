@@ -86,7 +86,7 @@ def call(Map config = [:]) {
 		compressLog : compress,
 		mimeType : 'text/html',
 		subject: subject,
-		to: getReceivers("${JOB_NAME}")
+		to: getReceivers("${JOB_BASE_NAME}")
 //		to: 'e3a11d4d.aptiv.com@amer.teams.ms, dev@upeuker.net'
 //		to: 'dev@upeuker.net'
 	)
