@@ -1,31 +1,12 @@
 def call(Map config = [:]) {
 
-	//	def content = libraryResource 'config/jenkinsEnvMap.properties'
-	//	Properties props = new java.util.Properties()
-	//
-	//	new java.io.StringReader(content).with { res ->
-	//		try {
-	//			props.load(res)
-	//		} finally {
-	//			res.close()
-	//		}
-	//	}
-	//
-	//	def  url = new java.net.URL((String)"${JENKINS_URL}")
-	//
-	//	def String request = url.getHost()
-	//	def String key = config.get("key", "");
-	//	if(!key.isEmpty()) {
-	//		request = request + "_" + key;
-	//	}
-	//
-	//	echo "Search for ${request}"
-	//
-	//	return props.getProperty(request, config.get("default"));
-
-	def  url = new java.net.URL((String)"${JENKINS_URL}")
-
-	def String request = url.getHost()
+//	def  url = new java.net.URL((String)"${JENKINS_URL}")
+//
+//	def String request = url.getHost()
+	
+	def  url = (String)"${JENKINS_URL}"
+	tring request = {url -> url[(url.indexOf('://')+ 3)..-1]​.split('/')[0]​ }
+	
 	def String key = config.get("key", "");
 	if(!key.isEmpty()) {
 		request = request + "_" + key;
