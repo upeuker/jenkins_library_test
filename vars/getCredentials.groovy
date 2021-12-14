@@ -6,12 +6,13 @@ def call(Map config = [:]) {
 	
 	def String url = "${JENKINS_URL}"
 	url = url.replaceAll('http?://', '')
-	def String [] parts =  url.split('/')
+	url = url.split('/')[0]
+	url = url.split(':')[0]
 	
 	println "URL (" + url.getClass() + ") " + url
-	println parts
-	println parts[0] + " --> " + parts[0].getClass()
-	println parts[1]
+//	println parts
+//	println parts[0] + " --> " + parts[0].getClass()
+//	println parts[1]
 //	def String request = parts[0]​.toString().trim()
 	
 	def String request = url
