@@ -10,9 +10,10 @@ def call(Map config = [:]) {
 	
 	println parts
 	println parts[0]
-	def String request = parts[0]​.toString().trim()
+	println parts[1]
+//	def String request = parts[0]​.toString().trim()
 	
-	//def String request = url
+	def String request = url
 	def String key = config.get("key", "");
 	if(!key.isEmpty()) {
 		request = request + "_" + key;
